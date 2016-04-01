@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userstory">
+
+<head>
+    <base href="/">
+    <title>User story</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.5.3/angular-route.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/storyService.js"></script>
+    <script src="app/services/userService.js"></script>
+    <script src="app/controllers/storyController.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/controllers/userController.js"></script>
+    <script src="app/app.routes.js"></script>
+    <script src="app/app.js"></script>
+</head>
+
+<body ng-controller="MainController as main">
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="/">User story</a>
+
+                </div>
+                <ul>
+                    <li>
+                        <a href="/users"></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
+                    <li ng-if="!main.loggedIn"><a href="/signup">Signup</a></li>
+                    <li ng-if="main.loggedIn">Hello {{main.user.username}}</li>
+                    <li ng-if="main.loggedIn"><a href="#" ng-click="main.logout()">Logout</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+</body>
+
+</html>

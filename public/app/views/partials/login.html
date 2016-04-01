@@ -1,0 +1,20 @@
+
+   <div  ng-controller="MainController as login">
+    
+    <form method="post" ng-submit="login.doLogin()">
+
+        
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="userid" class="sr-only">User Name</label>
+        <input type="text" id="userid" class="form-control" placeholder="User Name" ng-model="login.loginData.username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="login.loginData.password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        
+    </form>
+</div>
