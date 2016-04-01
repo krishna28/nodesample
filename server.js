@@ -21,9 +21,6 @@ mongoose.connect(config.database, function (err) {
     }
 });
 
-
-var routes = require('./routes')(app);
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));
